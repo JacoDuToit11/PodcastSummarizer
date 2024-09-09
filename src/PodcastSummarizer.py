@@ -39,13 +39,10 @@ class PodcastSummarizer:
             summary = response.choices[0].message.content
             # Save the summary to a file in the data directory
             try:
-                # Create the data directory if it doesn't exist
-                os.makedirs('data', exist_ok=True)
-                
                 # Generate a filename based on the current timestamp
                 from datetime import datetime
                 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-                filename = f"data/summary_{timestamp}.txt"
+                filename = f"../data/summary_{timestamp}.txt"
                 
                 # Write the summary to the file
                 with open(filename, 'w', encoding='utf-8') as f:
